@@ -32,7 +32,9 @@ function Login() {
 
         try {
             authenticateUser(email, password)
-                .then(token => login(token,email))
+           
+                 .then(token => login(token,email))
+                
                 .catch(error => {
                     
                     //     showAlert(error.message, 'fatal')}

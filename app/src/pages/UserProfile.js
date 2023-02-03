@@ -33,9 +33,9 @@ export default function UserProfile(){
 
     return <>
         <section>
-      <MDBContainer className="py-5">
-        <MDBRow>
-          <MDBCol lg="4">
+      <MDBContainer className="user_information py-5">
+        <MDBRow className="user_information-container py-5">
+          <MDBCol lg="4" className="user_information-user">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
                 <MDBCardImage
@@ -55,7 +55,7 @@ export default function UserProfile(){
 
            
           </MDBCol>
-          <MDBCol lg="8">
+          <MDBCol lg="8" className="user_information-info">
             <MDBCard className="mb-4">
               <MDBCardBody>
                 <MDBRow>

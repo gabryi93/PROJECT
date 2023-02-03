@@ -13,7 +13,6 @@ import Test from './components/Maps'
 import { ReactNotifications } from 'react-notifications-component'
 import NavBar from './components/NavBar'
 
-
 function App() {
   console.log('cargo app')
   log.info('App -> render')
@@ -29,6 +28,9 @@ function App() {
 
 
   const login = (token,email) => {
+    console.log(token)
+    
+    
     sessionStorage.token = token
      
     setLoggedIn(true)

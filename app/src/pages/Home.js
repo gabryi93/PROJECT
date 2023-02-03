@@ -35,11 +35,29 @@ function Home() {
                 showAlert(error.message, 'fatal')
         }
     }, [])
+
+
     console.log(user)
-    return  <div>
-               
-                <Maps />
-            </div>
+    // return  <div>
+                
+    //             {/* <Maps /> */}
+    //         </div>
+    return <center>
+
+    <div className="row m-5">
+        <div className="col-12  form">
+            <i className="fa fa-search"></i>
+            <input type="text" className="form-control form-input" placeholder="Buscar destino ..."/>   
+        </div>
+    </div>
+
+    <div className="row">
+        <div className="col-12 mt-5" >
+            <Maps />
+        </div>
+    </div>
+            
+    </center>
 }
 
 export default Home

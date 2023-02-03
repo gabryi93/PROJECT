@@ -56,5 +56,122 @@
   .inputForm {
     width:50%;
   }
+  
+  /* Desde aquí */
+  .navbar{
+    border-radius: 0 0 10px 10px !important;
+    background-color: #abe9f7 !important;
+    
+  }
 
-/* Desde aquí */
+  .navbar a{
+    font-weight: 700;
+    color: #6464f0;
+  }
+
+  .navbar #navbarsExample11 .d-lg-flex a{
+    background: none;
+    border: 3px solid #6464f0;
+    margin-right: 10px;
+  }
+  
+  .navbar #navbarsExample11 .d-lg-flex a:hover{
+    border: 3px solid #ffffff;
+  }
+
+  .navbar #navbarsExample11 .d-lg-flex .btn-danger{
+    background: none;
+    border: 3px solid red;
+  }
+
+  .navbar #navbarsExample11 .d-lg-flex .btn-danger .material-symbols-outlined{
+    color: red;
+  }
+
+  /* Personalización User information */
+
+  .user_information-container{
+    align-items: center;
+  }
+  .user_information-container .user_information-user .card{
+    border: 3px solid #6464f0;
+    background-color: rgba(171, 233, 247, 0.1);
+  }
+
+  .user_information-container .user_information-user .card .rounded-circle{
+    border: 3px solid #6464f0
+  }
+
+  .user_information-container .user_information-info .card{
+    border: 3px solid #6464f0;
+    background-color: rgba(171, 233, 247, 0.1);
+  }
+
+  .user_information-container .user_information-info .card hr{
+    border: 1px solid #6464f0;
+  }
+
+
+  /* //search form */
+  .form{
+
+    position: relative;
+}
+
+.form .fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+.form span{
+
+        position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan{
+    padding-left: 7px;
+}
+
+.left-pan i{
+   
+   padding-left: 10px;
+}
+
+.form-input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.card-img-top{
+
+  height: 300px;
+}
+
+.divsobreNostros{
+
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.5cm;;
+}
+
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 600,
+  'opsz' 40
+}
+

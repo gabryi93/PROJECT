@@ -1,11 +1,13 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.js", "./public/*.html"
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-  darkMode: 'class',
-}
+// const { setDriver } = require('mongoose')
+
+// /** @type {import('tailwindcss').Config} */
+// module.exports = {
+//   content: [
+//     "./src/**/*.js", "./public/*.html"
+//   ],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+//   darkMode: 'class',
+// }
