@@ -40,10 +40,11 @@ mongoose.connect(MONGODB_URL)
 
         // api.get('/users/info', jwtVerifier, infoUserHandler)
         api.get('/users/info', (req, res) => {
-            let userId = '63cee493311185bf0a9e286e';
+            let email = '';
             
-            infoUserHandler(userId)
-            .then(user => res.json(user))
+            infoUserHandler(email)
+            .then(user => 
+            res.json( CircularJSON.stringify(user)))
             .catch(error => {
                 console.log('aquiii')
                 if (error instanceof NotFoundError)
