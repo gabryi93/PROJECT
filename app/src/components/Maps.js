@@ -11,11 +11,7 @@ export default function  Maps ({lati})  {
   const [lat,setLatitude] = useState(null);
 
   const location = window.navigator && window.navigator.geolocation
-
-  
    
-    
-      
     if (location) {
       location.getCurrentPosition((position) => {
         setLatitude(position.coords.latitude)
@@ -25,19 +21,31 @@ export default function  Maps ({lati})  {
       })
     }
 
-    function forceCoords(){
-      setLatitude('43.3602900')
-      setLongitude('-5.8447600')
-      console.log(lat)
-      console.log(long)
+    const L = require('leaflet');
 
-    }
+
+    const myIcon = L.icon({
+      iconUrl: require('../assets/marker.png'),
+      iconSize: [40,45],
+      iconAnchor: [32, 64],
+      popupAnchor: null,
+      shadowUrl: null,
+      shadowSize: null,
+      shadowAnchor: null
+  });
+    // function forceCoords(){
+    //   setLatitude('43.3602900')
+    //   setLongitude('-5.8447600')
+    //   console.log(lat)
+    //   console.log(long)
+
+    // }
   
     
 
   return (
     <>
-      <button onClick={forceCoords}>Forzar Coordenadas</button>
+      
       {lat  == null && long == null ? <h1>Sin datos de tus coordenadas ... permita el uso de ellas</h1> : 
       <div className="map__container">
            <MapContainer
@@ -49,6 +57,12 @@ export default function  Maps ({lati})  {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
+
+        <Marker position={[lat,long]} icon={myIcon}>
+              <Popup >
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
             </MapContainer>
        
         </div>

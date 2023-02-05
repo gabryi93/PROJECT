@@ -29,18 +29,13 @@ function NavBar({ user }) {
           className="collapse navbar-collapse d-lg-flex"
           id="navbarsExample11"
         >
-          {/* <Link to="/Home" class="carHome col-lg-3 me-0" href="/Home.js">
+          <Link to="/" class="navbar-brand col-lg-3 me-0" >
             <span className="material-symbols-outlined">directions_car</span>
-          </Link> */}
+          </Link>
 
-          <a className="navbar-brand col-lg-3 me-0" >Inicio</a>
+          {/* <a className="navbar-brand col-lg-3 me-0" >Inicio</a> */}
           <ul className="navbar-nav col-lg-6 justify-content-lg-center">
-            <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" >Inico</a>
-                    </li>
-            <li className="nav-item">
-                        <a className="nav-link" >Link</a>
-                    </li>
+           
             <li className="nav-item">
               <Link to="/sobreNosotros" className="nav-link">
                 Sobre nosotros
@@ -48,7 +43,7 @@ function NavBar({ user }) {
             </li>
           </ul>
           <div className="d-lg-flex col-lg-3 justify-content-lg-end">
-            <i class="fa-solid fa-house"></i>
+            
             <Link to="/userProfile" className="btn btn-primary">
               <span class="material-symbols-outlined">person</span>
             </Link>

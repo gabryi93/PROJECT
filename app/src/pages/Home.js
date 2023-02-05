@@ -50,7 +50,7 @@ function Home() {
 
     <div className="row">
         <div className="col-12 mt-5" >
-            <Maps latitude={'43.93934'} longitude={'-5.95839'}/>
+            <Maps/>
         </div>
     </div>
             
