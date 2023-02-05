@@ -10,7 +10,7 @@ import { errors } from 'com'
 const { FormatError, AuthError, LengthError, NotFoundError } = errors
 
 function Home() {
-    console.log(sessionStorage)
+    
     log.info('Home -> render')
 
     const [user, setUser] = useState()
@@ -38,10 +38,7 @@ function Home() {
 
 
     console.log(user)
-    // return  <div>
-                
-    //             {/* <Maps /> */}
-    //         </div>
+
     return <center>
 
     <div className="row m-5">
@@ -53,7 +50,7 @@ function Home() {
 
     <div className="row">
         <div className="col-12 mt-5" >
-            <Maps />
+            <Maps latitude={'43.93934'} longitude={'-5.95839'}/>
         </div>
     </div>
             
