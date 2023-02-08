@@ -28,7 +28,7 @@ function App() {
 
 
   const login = (token,email) => {
-    console.log(token)
+    
     
     
     sessionStorage.token = token

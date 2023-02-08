@@ -29,7 +29,7 @@ function Login() {
         event.preventDefault()
 
         const { email: { value: email }, password: { value: password } } = event.target
-
+        
         try {
             authenticateUser(email, password)
            

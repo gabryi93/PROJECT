@@ -5,9 +5,9 @@ const { FormatError, AuthError, LengthError, NotFoundError, UnexpectedError } = 
 /**
  * Get info about user
  * 
- * @param {int} id The user id
+ * @param {int} email The user email
  */
-export default function getUserInfo(id) {
+export default function getUserInfo(email) {
     
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest()
@@ -41,13 +41,13 @@ export default function getUserInfo(id) {
         xhr.onerror = () => reject(new Error('connection error'))
 
 
-        xhr.open('GET', 'http://localhost:3001/users/info')
+        xhr.open('GET', 'http://localhost:3001/users/info?email='+email)
         xhr.setRequestHeader('Content-Type', 'application/json')
 
-        const payload = { id }
+        const payload = { email }
 
         const json = JSON.stringify(payload)
-        console.log(json)
+        
         xhr.send(json)
     })
 }

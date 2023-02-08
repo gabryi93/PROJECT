@@ -1,6 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const express = require('express')
+const await = require('await')
 
 const authenticateUserHandler = require('./handlers/authenticateUserHandler')
 const registerUserHandler = require('./handlers/registerUserHandler')
@@ -11,6 +12,7 @@ const jsonBodyParser = require('./utils/jsonBodyParser')
 const jwtVerifier = require('./utils/jwtVerifier')
 const prueba = require('./utils/prueba')
 const { user } = require('./models/schemas')
+const {User} = require('./models')
 
 const MONGODB_URL = 'mongodb://127.0.0.1:27017/demo';
 const PUERTO = 80;
@@ -40,21 +42,27 @@ mongoose.connect(MONGODB_URL)
 
         // api.get('/users/info', jwtVerifier, infoUserHandler)
         api.get('/users/info', (req, res) => {
-            let email = '';
+
             
-            infoUserHandler(email)
-            .then(user => 
-            res.json( CircularJSON.stringify(user)))
-            .catch(error => {
-                console.log('aquiii')
-                if (error instanceof NotFoundError)
-                    res.status(404).json({ error: error.message })
-                else
-                    res.status(500).json({ error: error.message })
-            })
-           
-            res.send(res)
-          })
+            mongoose.collection('users', function(err, collection) {
+            collection.find().toArray(function(err, items) {
+                console.log(items);
+                res.send(items);
+            });
+        });
+          
+
+            // let email = req.query.email;
+
+            // let response = null;
+
+            // User.find({ email: email }).toArray(function (err, docs) {
+            //     res.send(docs)
+            // });
+
+            
+            
+        })
 
         api.post('/users', jsonBodyParser, registerUserHandler)
 

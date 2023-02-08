@@ -119,6 +119,9 @@ export default function authenticateUser(email, password) {
 
         const payload = { email, password }
 
+        //inserto email en local_storage para poder acceder a el desde cualquier parte
+        localStorage.setItem('login_email',email)
+        
         const json = JSON.stringify(payload)
 
         xhr.send(json)
