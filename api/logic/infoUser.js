@@ -2,9 +2,8 @@ const { errors: { FormatError } } = require('com')
 const { User } = require('../models')
 
 function infoUser(email) {
-    // if (typeof userId !== 'string') throw new TypeError('userId is not a string')
-    // if (!userId.length) throw new FormatError('userId is empty')
     
+   
     return User.findOne({ email: email })
         .then(user => {
             
@@ -18,7 +17,7 @@ function infoUser(email) {
 
                let test = {'email':user.email,'name':user.name}
    
-               return test
+               return user
         })
 }
 

@@ -1,5 +1,6 @@
 import {React, useEffect, useState } from 'react';
 
+
 import {
     MDBCol,
     MDBContainer,
@@ -27,19 +28,28 @@ export default function UserProfile(){
 
 
     useEffect(() => {
+      // // hacemos petición al cargar la pagina servidor para obtener la información del usuario logeado
 
+      
       let email = localStorage.getItem('login_email')
-      // hacemos petición al servidor para obtener la información del usuario logeado
-        getUserInfo(email)
-        .then(infoUser => console.log(infoUser,'test'))
-        .catch(error => {
-            console.log(error)
-            })
+      //con fetch funciona sin problemaa
+              // fetch('http://localhost:3001/users/info?email='+email).then(response => {
+              //   return response.json();
+              // }).then(json => {
+                
+              //   setInfoUser(json);
+              // }).catch('error');
+      getUserInfo('GET', email, function (err, info) {
+        if (err) { throw err; }
+        
+        console.log(info)
       });
-
+        
+    },[])
       return (
         <>
           {infoUser  == null ? <Spinner /> :  
+          
           <section>
             <MDBContainer className="user_information py-5">
               <MDBRow className="user_information-container py-5">
@@ -71,7 +81,7 @@ export default function UserProfile(){
                           <MDBCardText>Full Name</MDBCardText>
                         </MDBCol>
                         <MDBCol sm="9">
-                          <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                          <MDBCardText className="text-muted">----</MDBCardText>
                         </MDBCol>
                       </MDBRow>
                       <hr />

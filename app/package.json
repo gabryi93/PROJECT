@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "boostrap": "^2.0.0",
     "com": "file:../com",
+    "fetch": "^1.1.0",
     "leaflet": "^1.9.3",
     "leaflet-defaulticon-compatibility": "^0.1.1",
     "leaflet-geosearch": "^3.7.0",

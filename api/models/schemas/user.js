@@ -13,5 +13,14 @@ module.exports = new Schema({
     password: {
         type: String,
         required: true
+    },
+    phone: {
+        type: Number,
+        required: false
+    },
+    address: {
+        type: String,
+        required: false
     }
+
 })

@@ -1,18 +1,19 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const express = require('express')
-const await = require('await')
+
 
 const authenticateUserHandler = require('./handlers/authenticateUserHandler')
 const registerUserHandler = require('./handlers/registerUserHandler')
 const retrieveUserHandler = require('./handlers/retrieveUserHandler')
-const infoUserHandler = require('./logic/infoUser')
+const infoUser = require('./logic/infoUser')
+
 
 const jsonBodyParser = require('./utils/jsonBodyParser')
 const jwtVerifier = require('./utils/jwtVerifier')
 const prueba = require('./utils/prueba')
 const { user } = require('./models/schemas')
-const {User} = require('./models')
+
 
 const MONGODB_URL = 'mongodb://127.0.0.1:27017/demo';
 const PUERTO = 80;
@@ -34,32 +35,23 @@ mongoose.connect(MONGODB_URL)
         // var app = express()
 
         api.use(cors)
+     
 
         api.post('/users/auth', jsonBodyParser, authenticateUserHandler)
         api.post('/users', jsonBodyParser, registerUserHandler)
 
         api.get('/users', jwtVerifier, retrieveUserHandler)
 
-        // api.get('/users/info', jwtVerifier, infoUserHandler)
+        // api.get('/users/info', jsonBodyParser, infoUserHandler)
         api.get('/users/info', (req, res) => {
 
-            
-            mongoose.collection('users', function(err, collection) {
-            collection.find().toArray(function(err, items) {
-                console.log(items);
-                res.send(items);
-            });
-        });
-          
+            //guardo en una variable mail del usuario
+            let emailUser = req.query.email;
 
-            // let email = req.query.email;
-
-            // let response = null;
-
-            // User.find({ email: email }).toArray(function (err, docs) {
-            //     res.send(docs)
-            // });
-
+            infoUser(emailUser)
+            .then(user => res.send(user))
+            .catch(error => {
+            })
             
             
         })
