@@ -14,8 +14,6 @@ function infoUser(email) {
                user.id = user._id.toString()
 
                delete user._id
-
-               let test = {'email':user.email,'name':user.name}
    
                return user
         })

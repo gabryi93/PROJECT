@@ -1,6 +1,7 @@
 import log from '../utils/coolog'
 import { useEffect, useState } from 'react'
 import retrieveUser from '../logic/retrieveUser'
+import getCoords from '../logic/getCoords'
 import Header from '../components/Header'
 import { useContext } from 'react'
 import Context from '../components/Context'
@@ -14,7 +15,9 @@ function Home() {
     log.info('Home -> render')
 
     const [user, setUser] = useState()
+    const [addressToSearch, setAddressToSearch] = useState(null)
     const { showAlert,logout } = useContext(Context)
+    const [ infoDestination,setInfoDestination ] = useState(null)
 
     useEffect(() => {
         try {
@@ -36,20 +39,45 @@ function Home() {
         }
     }, [])
 
+    function getPosition(){
 
-    console.log(user)
+    getCoords('GET', addressToSearch, function (err, info) {
+            if (err) { throw err; }
+            
+            let objectAdrress = JSON.parse(info)
+            let userAddress = objectAdrress['data'][0];
+            setInfoDestination(userAddress)
+        });
+    }
+
 
     return <center>
 
     <div className="row m-5">
-        <div className="col-12  form">
+        <div className="col-10  form">
             <i className="fa fa-search"></i>
-            <input type="text" className="form-control form-input" placeholder="Buscar destino ..."/>   
+            <input type="text" className="form-control form-input" onChange={(e) => setAddressToSearch(e.target.value)} placeholder="Calle Inventada 7 , Madrid ..."/>   
+        </div>
+
+        <div className="col-2  form">
+        <button className='btn btn-info' onClick={getPosition}>Buscar</button>
         </div>
     </div>
 
     <div className="row">
         <div className="col-12 mt-5" >
+        {infoDestination == null ? 'Sin datos de destino ...' : 
+        
+        <section>
+            Longitud destino : {infoDestination.longitude}
+            Latitud destino : {infoDestination.latitude}
+            Provincia : {infoDestination.locality}
+            <hr></hr>
+            Mi latitud: {localStorage.getItem('latitude')}
+            Mi longitud: {localStorage.getItem('longitude')}
+            <iframe title="ee" src={infoDestination.map_url}></iframe>
+        </section>
+        }
             <Maps/>
         </div>
     </div>

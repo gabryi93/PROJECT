@@ -16,6 +16,10 @@ export default function  Maps ({lati})  {
       location.getCurrentPosition((position) => {
         setLatitude(position.coords.latitude)
         setLongitude(position.coords.longitude)
+
+        //guardo en localstorage mi latitud y longiutud
+        localStorage.setItem('latitude',position.coords.latitude)
+        localStorage.setItem('longitude',position.coords.longitude)
       }, (error) => {
         this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
       })

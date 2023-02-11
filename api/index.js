@@ -6,6 +6,7 @@ const express = require('express')
 const authenticateUserHandler = require('./handlers/authenticateUserHandler')
 const registerUserHandler = require('./handlers/registerUserHandler')
 const retrieveUserHandler = require('./handlers/retrieveUserHandler')
+const updateUserHandler = require('./handlers/updateUserHandler')
 const infoUser = require('./logic/infoUser')
 
 
@@ -56,7 +57,9 @@ mongoose.connect(MONGODB_URL)
             
         })
 
-        api.post('/users', jsonBodyParser, registerUserHandler)
+        api.post('/users/update', jsonBodyParser, updateUserHandler)
+
+        //api.post('/users', jsonBodyParser, registerUserHandler)
 
         api.listen(port, () => {
             console.log(`Example app listening on port ${port}`)
