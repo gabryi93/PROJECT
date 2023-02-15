@@ -13,8 +13,8 @@ function SobreNosotros() {
         <img src={logoApp2} className="card-img-top" alt="..." />
 
         <div className="card-body h-100">
-          <h5 className="card-title">Nuevas Tecnologías</h5>
-          <p className="card-text">Nos basamos en las nuevas tecnologías del entorno de programación, para ofrecerte el mejor servisio al mejor precio.</p>
+          <h5 className="card-title"><b>Nuevas Tecnologías</b></h5>
+          <p className="card-text">Nos basamos en las nuevas tecnologías del entorno de la programación, para ofrecerte el mejor servicio al mejor precio.</p>
 
         </div>
       </div></div>
@@ -22,8 +22,8 @@ function SobreNosotros() {
         <img src={logoApp} className="card-img-top" alt="..." />
 
         <div className="card-body h-100">
-          <h5 className="card-title">Trabajamos con las mejores empresas</h5>
-          <p className="card-text">Comparamos los precios de las VTC más importantes de tu ciudad, para que en un solo click, puedas solicitar el servicio que más te guste y que te sientas seguro y respaldado.</p>
+          <h5 className="card-title"><b>Trabajamos con las mejores empresas</b></h5>
+          <p className="card-text">Comparamos los precios de las VTC más importantes de tu ciudad, para que en un solo click, puedas solicitar el servicio que más se adecue a tus necesidades.</p>
 
         </div>
       </div></div>
@@ -31,14 +31,14 @@ function SobreNosotros() {
         <img src={logoApp1} className="card-img-top" alt="..." />
 
         <div className="card-body h-100">
-          <h5 className="card-title">Conductores homologados</h5>
-          <p className="card-text">Cualquier servicio de transporte que solicites, acudirá un conductor homologado, ya que tú sigues usando las mismas aplicaciones de Cabify, Bolt y Uber, pero desde nuestra aplicación</p>
+          <h5 className="card-title"><b>Conductores homologados</b></h5>
+          <p className="card-text">Cualquier servicio de transporte que solicites, acudirá un conductor homologado, ya que trabajamos con Uber, Cabify y Bolt. </p>
 
         </div>
       </div></div>
     </div>
     <div className='divsobreNostros'>
-      <h1>¿Porqué elegirnos?</h1>
+      <h1>¿Por qué elegirnos?</h1>
       <br />
       <p>Es muy sencillo, estás cansado de siempre estar comparando entre las 3 principales aplicaciones de servicios <b>VTC</b>, para saber que trayecto es el más barato...<br />
         Nosotros nos encargamos de comparar los precios de los principales servicios de de <b>VTC</b>, te hacemos ahorrar esos eurillos a fin de mes, hacemos que pagues <br />

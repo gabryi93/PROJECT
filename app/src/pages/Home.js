@@ -6,10 +6,13 @@ import Header from '../components/Header'
 import { useContext } from 'react'
 import Context from '../components/Context'
 import Maps from '../components/Maps'
-import NavBar from '../components/NavBar'
+
 import LoaderGif from '../components/loaderGif'
 import { errors } from 'com'
 import data from '../data/prices'
+import logoUber from '../assets/Uber.jpg'; // Tell webpack this JS file uses this image
+import logoCabify from '../assets/cabify.png'; // Tell webpack this JS file uses this image
+import logoBolt from '../assets/bolt.png'; // Tell webpack this JS file uses this image
 
 const { FormatError, AuthError, LengthError, NotFoundError } = errors
 
@@ -20,20 +23,20 @@ function Home() {
     const arrayEmp= [
         {   'name':'Uber',
             'info':'Uber Technologies, Inc. conocida simplemente como Uber es una empresa estadounidense proveedora de movilidad como un servicio. ',
-            'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/320px-Uber_logo_2018.svg.png',
-            'price' : '0.5',
+            'img ':'{logoUber}',
+            'price' : '1.90',
             'color': 'dark'
         },
         {   'name' : 'Cabify',
             'info':'Cabify es una empresa española de red de transporte a través de su aplicación móvil para teléfonos inteligentes. Los vehículos son conducidos por proveedores de servicios autónomos. ',
-            'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Cabify-Logo-Moradul-RGB.png/300px-Cabify-Logo-Moradul-RGB.png',
-            'price' :'0.45',
+            'img': '../assets/cabify.png',
+            'price' :'2.05',
             'color':'purple'
         },
-        {   'name':'Volt',
+        {   'name':'Bolt',
             'info':'Bolt, anteriormente Taxify,1​ es una compañía tecnológica proveedora de servicios de movilidad fundada y radicada en Tallin, Estonia. La empresa desarrolla y opera la aplicación móvil Bolt, que permite a sus clientes solicitar un taxi o un conductor privado, alquilar patinetes eléctricos, bicicletas eléctricas o automóviles, pedir comida a domicilio o hacer la compra desde su teléfono. ',
-            'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Bolt_logo.png/320px-Bolt_logo.png',
-            'price' : '0.60',
+            'img': '../assets/bolt.png',
+            'price' : '1.82',
             'color':'green'
         }
 
@@ -117,17 +120,18 @@ function Home() {
             <input type="text" className="form-control form-input" onChange={(e) => setAddressToSearch(e.target.value)} placeholder="Calle Inventada 7 , Madrid ..."/>   
         </div>
 
-        <div className="col-2  form">
+        <div className="col-1  form">
         <button className='btn btn-info' onClick={getPosition}>Buscar</button>
         </div>
     </div>
-
+<div clasName="mapContainer">
     <div className='row'>
         <div className='col-5'>
-        <h1>Ubicación actual: </h1>
+        <p>Ubicación actual: </p>
             <Maps/>
         </div>
         <div className='col-5'>
+
             {infoDestination == null ? <LoaderGif /> : 
             
             <section>
@@ -137,10 +141,12 @@ function Home() {
                 <hr></hr>
                 Mi latitud: {localStorage.getItem('latitude')}
                 Mi longitud: {localStorage.getItem('longitude')} */}
-                <h1>Destino: {addressToSearch}</h1>
+                <p>Destino: {addressToSearch}</p>
                 <iframe title="ee" src={infoDestination.map_url}></iframe>
             </section>
+    
             }
+    </div>
         </div>
     </div>
     <div className='row col-12 mt-2'>
@@ -150,7 +156,7 @@ function Home() {
                 
                 arrayEmp.map(emp =>
                    
-                    <div className="card col-4" width="50%">
+                    <div className="row mt-5 col">
                         <img className="card-img-top" src={emp.img} alt="Card image cap" /> 
                         <div className="card-body">
                             <h5 className="card-title">{emp.name}</h5>
@@ -161,6 +167,7 @@ function Home() {
                  
                  
                 )
+                
               
                 } 
        

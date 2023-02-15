@@ -25,6 +25,7 @@ import {
   import { ReactNotifications } from 'react-notifications-component'
   import 'react-notifications-component/dist/theme.css'
   import { Store } from 'react-notifications-component';
+  import logoCheap from '../assets/CheapMoveLogo.png'; // Tell webpack this JS file uses this image
 
 
 export default function UserProfile(){
@@ -115,11 +116,9 @@ export default function UserProfile(){
                         className="rounded-circle"
                         style={{ width: '150px' }}
                         fluid />
-                      <p className="text-muted mb-1">Full Stack Developer</p>
-                      <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                      <div className="d-flex justify-content-center mb-2">
-                        <MDBBtn>Follow</MDBBtn>
-                        <MDBBtn outline className="ms-1">Message</MDBBtn>
+                        <br></br>
+                        <br></br>
+                      <div className="d-flex justify-content-center mb-2">             
                       </div>
                     </MDBCardBody>
                   </MDBCard>
@@ -190,6 +189,7 @@ export default function UserProfile(){
             </MDBContainer>
           </section>
           }
+          
         </>
       )
 
