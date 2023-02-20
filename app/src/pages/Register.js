@@ -44,7 +44,7 @@ function Register() {
                     
                     <h1 class="h3 mb-3 fw-normal">Registro</h1>
                     <div class="form-floating">
-                        <input type="name" name="name" class="form-control inputForm" id="floatingInput" placeholder="Nombre ..." />
+                        <input type="text" name="name" class="form-control inputForm" id="floatingInput" placeholder="Nombre ..." />
                     </div>
                     <div class="form-floating">
                         <input type="email" name="email" class="form-control inputForm" id="floatingInput" placeholder="name@example.com" />
@@ -55,7 +55,7 @@ function Register() {
                     </div>
                 
                     
-                    <button className="p-2 border rounded-xl hover:animate-spin">Registro</button>
+                    <button className="mt-5 btn btn-info p-2 border rounded-xl hover:animate-spin"><b>Registro</b></button>
                     
                     </form>
                     <Link to="/login" className="underline">Login</Link>

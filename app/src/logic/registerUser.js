@@ -1,8 +1,69 @@
 import { regex, errors } from 'com'
+import 'react-notifications-component/dist/theme.css'
+import { Store } from 'react-notifications-component';
 
-const { IS_EMAIL_REGEX, HAS_SPACES_REGEX, IS_ALPHABETICAL_REGEX } = regex
+const {  HAS_SPACES_REGEX, IS_ALPHABETICAL_REGEX } = regex
 
-const { FormatError, LengthError, ConflictError, UnexpectedError } = errors
+const {  ConflictError, UnexpectedError } = errors
+
+
+
+const errorLength = (type,longitud) => {
+    
+    Store.addNotification({
+        title: "Error!",
+        message: type+" debe contener minimo " + longitud + " carácteres",
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animation : ["bounce_in"],
+        // animationIn: ["bounce_in"],
+        // animationOut: ["bounce_out"],
+        dismiss: {
+          duration: 3000,
+          onScreen: true
+        }
+      });
+}
+
+const errorString = (type) => {
+    
+    Store.addNotification({
+        title: "Error!",
+        message: type+" debe ser texto",
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animation : ["bounce_in"],
+        // animationIn: ["bounce_in"],
+        // animationOut: ["bounce_out"],
+        dismiss: {
+          duration: 3000,
+          onScreen: true
+        }
+      });
+}
+
+const errorEspacios = () => {
+    
+    Store.addNotification({
+        title: "Error!",
+        message: "La contraseña no debe de contener espacios",
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animation : ["bounce_in"],
+        // animationIn: ["bounce_in"],
+        // animationOut: ["bounce_out"],
+        dismiss: {
+          duration: 3000,
+          onScreen: true
+        }
+      });
+}
+
+
+
 
 /**
  * Registers a user
@@ -13,16 +74,28 @@ const { FormatError, LengthError, ConflictError, UnexpectedError } = errors
  */
 export default function registerUser(name, email, password) {
     
-    if (typeof name !== 'string') throw new Error('name is not a string')
-    if (!IS_ALPHABETICAL_REGEX.test(name)) throw new Error('name is not alphabetical')
-    if (name.length < 1) throw new LengthError('name length is less than 1')
+    if (typeof name !== 'string' || !IS_ALPHABETICAL_REGEX.test(name)) {
+        errorString('Usuario')
+    } 
+   
+    if (name.length < 1){
+        errorLength('Usuario',1)
+    }
 
-    if (typeof email !== 'string') throw new Error('email is not a string')
-    if (!IS_EMAIL_REGEX.test(email)) throw new Error('email is not valid')
+    if (typeof email !== 'string') {
+        errorString('Email')
+    }
+    // if (!IS_EMAIL_REGEX.test(email)) throw new Error('email is not valid')
 
-    if (typeof password !== 'string') throw new Error('password is not a string')
-    if (password.length < 8) throw new Error('password length is less than 8')
-    if (HAS_SPACES_REGEX.test(password)) throw new Error('password has spaces')
+    if (typeof password !== 'string') {
+        errorString('Email')
+    }
+    if (password.length < 8) {
+        errorLength('Contraseña',8)
+    }
+    if (HAS_SPACES_REGEX.test(password)) {
+        errorEspacios()
+    }
 
     return new Promise((resolve, reject) => {
 
@@ -34,14 +107,15 @@ export default function registerUser(name, email, password) {
             if (status === 201)
                 resolve()
             else if (status === 400) {
-                const { error } = JSON.parse(json)
+                // const { error } = JSON.parse(json)
 
-                if (error.includes('is not a'))
-                    reject(new TypeError(error))
-                else if (error.includes('valid') || error.includes('spaces'))
-                    reject(new FormatError(error))
-                else if (error.includes('length'))
-                    reject(new LengthError(error))
+                // if (error.includes('is not a'))
+                //     reject(new TypeError(error))
+                // else if (error.includes('valid') || error.includes('spaces'))
+                //     // reject(new FormatError(error))
+                // else if (error.includes('length'))
+                //     test();
+                    // reject(new LengthError(error))
             } else if (status === 409) {
                 const { error } = JSON.parse(json)
 

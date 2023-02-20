@@ -72,6 +72,11 @@ body {
     
   }
 
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+
   .navbar a{
     font-weight: 700;
     color: #ffffff;
@@ -99,6 +104,12 @@ body {
     background-color: #11999e;
     --bs-btn-padding-x: 2rem;
     --bs-btn-padding-y: 0.90rem;
+    }
+
+    .img-cards{
+      width: 50%;
+      height: 50%;
+      border-radius: 10%;
     }
 
     .row>* {
@@ -148,13 +159,11 @@ body {
 }
 
 .form span{
-
-        position: absolute;
+    position: absolute;
     right: 17px;
     top: 13px;
     padding: 2px;
     border-left: 1px solid #d1d5db;
-
 }
 
 .left-pan{
@@ -203,16 +212,34 @@ iframe {
   height: 600px;
 }
 
-main {
+#contenedorLogin {
   background-image: url(../src/assets/CheapMoveLogo.png);
-  width: 100%;
-  height: 100vh;
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 100%;
   
   background-image: -o-linear-gradient(50);
+} 
+
+footer {
+  background-color: #095f62;
 }
 
+.test { 
+  height: 100%;
+  
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url(../src/assets/CheapMoveLogo.png);
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  
+ 
+}
 
 /* modificar fuente */
 @font-face {

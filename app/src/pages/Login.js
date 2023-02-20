@@ -45,31 +45,29 @@ function Login() {
         }
     }
 
-    return <center>
-                <main class="form-signin w-100 m-auto">
-                        <form onSubmit={handleLogin}>
-                        
-                        <h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>
-                    
+    return <center className='test'>
+            <div className="row" >
+
+            
+                <form onSubmit={handleLogin}>
+                    <h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>                   
                         <div class="form-floating">
-                            <input type="email" name="email" class="form-control inputForm" id="floatingInput" placeholder="name@example.com" />
+                        <input type="email" name="email" class="form-control inputForm" id="floatingInput" placeholder="name@example.com" />
                         </div>
                         <div class="form-floating">
-                            <input type="password" name="password" class="form-control inputForm" id="floatingPassword" placeholder="Contraseña ..."/>
-                            
-                        </div>
+                        <input type="password" name="password" class="form-control inputForm" id="floatingPassword" placeholder="Contraseña ..."/>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                        <input type="checkbox" value="remember-me"/> Remember me
+                        </label>
+                    </div>
+                        <button className="btn btn-info p-2 border rounded-xl hover:animate-spin"><b>Login</b></button>   
+                </form>
+                <Link to="/register" className="underline">Registro</Link>
                     
-                        <div class="checkbox mb-3">
-                            <label>
-                            <input type="checkbox" value="remember-me"/> Remember me
-                            </label>
-                        </div>
-                        <button className="p-2 border rounded-xl hover:animate-spin">Login</button>
-                        
-                        </form>
-                    <Link to="/register" className="underline">Registro</Link>
-                </main>
-            </center>
+            </div>
+        </center>
    
 
 }

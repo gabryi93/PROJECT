@@ -1,6 +1,6 @@
 import { regex, errors } from 'com'
-import { ReactNotifications } from 'react-notifications-component'
-import 'react-notifications-component/dist/theme.css'
+// import { ReactNotifications } from 'react-notifications-component'
+// import 'react-notifications-component/dist/theme.css'
 import { Store } from 'react-notifications-component';
 
 const { IS_EMAIL_REGEX, HAS_SPACES_REGEX } = regex

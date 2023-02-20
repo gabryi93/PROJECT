@@ -12,6 +12,7 @@ import Alert from './components/Alert'
 import Test from './components/Maps'
 import { ReactNotifications } from 'react-notifications-component'
 import NavBar from './components/NavBar'
+import Footer from "./components/Footer";
 
 function App() {
   console.log('cargo app')
@@ -67,13 +68,17 @@ function App() {
     {loggedIn ? 
     <>
       <NavBar />
-      <Routes>
+      <body>
+        <Routes>
+        
+          <Route path="/" element={<Home />} />
+          <Route path="/sobreNosotros" element={<SobreNosotros />} />
+          <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Routes>
+      </body>
+      <Footer />
       
-        <Route path="/" element={<Home />} />
-        <Route path="/sobreNosotros" element={<SobreNosotros />} />
-        <Route path="/userProfile" element={<UserProfile />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
     </>
       :
       <Routes>
