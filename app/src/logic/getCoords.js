@@ -1,5 +1,5 @@
 
-import { regex, errors } from 'com'
+import { errors } from 'com'
 const { FormatError, AuthError, LengthError, NotFoundError, UnexpectedError } = errors
 
 /**
@@ -20,7 +20,4 @@ export default function getCoords(method,address,done) {
         done(xhr.response);
     };
     xhr.send();
-
-
-
 }

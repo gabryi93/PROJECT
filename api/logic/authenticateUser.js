@@ -11,6 +11,7 @@ const { User } = require('../models')
  * @param {string} password The user password
  */
 function authenticateUser(email, password) {
+    
     if (typeof email !== 'string') throw new TypeError('email is not a string')
     if (!IS_EMAIL_REGEX.test(email)) throw new FormatError('email is not valid')
 

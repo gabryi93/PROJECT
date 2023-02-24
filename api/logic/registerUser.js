@@ -4,7 +4,7 @@ const {
 } = require('../../com')
 const { User } = require('../models')
 
-function registerUser(name, email, password) {
+function registerUser(name, email, password,phone) {
     if (typeof name !== 'string') throw new TypeError('name is not a string')
     if (!IS_ALPHABETICAL_REGEX.test(name)) throw new FormatError('name is not alphabetical')
     if (name.length < 1) throw new LengthError('name length is less than 1')
@@ -16,7 +16,7 @@ function registerUser(name, email, password) {
     if (password.length < 8) throw new LengthError('password length is less than 8')
     if (HAS_SPACES_REGEX.test(password)) throw new FormatError('password has spaces')
 
-    return User.create({ name, email, password })
+    return User.create({ name, email, password, phone })
          .catch(error => {
             if (error.message.includes('E11000'))
                 throw new ConflictError(`user with email ${email} already exists`)

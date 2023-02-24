@@ -1,5 +1,3 @@
-
-
 export default function Footer() {
    
     return <footer className=" mt-10 text-center text-lg-start text-white">
@@ -9,8 +7,7 @@ export default function Footer() {
       <div className="me-5 d-none d-lg-block">
         <span>Get connected with us on social networks:</span>
       </div>
-    
-    
+        
       <div>
         <a  className="me-4 text-reset">
           <i className="fab fa-facebook-f"></i>
@@ -33,9 +30,7 @@ export default function Footer() {
       </div>
       
     </section>
-   
-  
-   
+     
     <section className="">
       <div className="container text-center text-md-start mt-5">
         
@@ -50,9 +45,7 @@ export default function Footer() {
               Creados para que pagues lo justo por lo que contratas, nosotros comparamos por ti.
             </p>
           </div>
-         
-  
-       
+                
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
            
             <h6 className="text-uppercase fw-bold mb-4">
@@ -105,9 +98,7 @@ export default function Footer() {
        
       </div>
     </section>
-   
-  
-    
+      
     <div className="text-center p-4" style={{'backgroundColor':'rgba(0, 0, 0, 0.05)'}} >
       © 2021 Copyright:
       <a className="text-reset fw-bold" href="https://mdbootstrap.com/">CheapMove.com</a>

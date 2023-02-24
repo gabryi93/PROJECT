@@ -53,8 +53,7 @@ function Register() {
                         <input type="password" name="password" class="form-control inputForm" id="floatingPassword" placeholder="Contraseña ..."/>
                         
                     </div>
-                
-                    
+                                  
                     <button className="mt-5 btn btn-info p-2 border rounded-xl hover:animate-spin"><b>Registro</b></button>
                     
                     </form>

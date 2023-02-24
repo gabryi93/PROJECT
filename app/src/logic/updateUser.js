@@ -14,17 +14,6 @@ const { FormatError, LengthError, ConflictError, UnexpectedError } = errors
 
  */
 export default function updateUser(id,name, address, phone) {
-    
-    // if (typeof name !== 'string') throw new Error('name is not a string')
-    // if (!IS_ALPHABETICAL_REGEX.test(name)) throw new Error('name is not alphabetical')
-    // if (name.length < 1) throw new LengthError('name length is less than 1')
-
-    // if (typeof email !== 'string') throw new Error('email is not a string')
-    // if (!IS_EMAIL_REGEX.test(email)) throw new Error('email is not valid')
-
-    // if (typeof password !== 'string') throw new Error('password is not a string')
-    // if (password.length < 8) throw new Error('password length is less than 8')
-    // if (HAS_SPACES_REGEX.test(password)) throw new Error('password has spaces')
 
     return new Promise((resolve, reject) => {
 

@@ -1,13 +1,11 @@
 
 
-function Search() {
+// function Search() {
     
-    return <h1>TEST SEARCH</h1>
+//     return <h1>TEST SEARCH</h1>
     
-}
+// }
 
-export default Search
+// export default Search
 
-
-//Prueba de Search
 

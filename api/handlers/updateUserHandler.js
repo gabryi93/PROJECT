@@ -5,11 +5,11 @@ const { errors: { FormatError, LengthError, ConflictError } } = require('com')
 module.exports = (req, res) => {
     
     try {
-        //em quedo con el body de la request, que es donde están los parametros que envio desde el cliente
+        //me quedo con el body de la request, que es donde están los parametros que envio desde el cliente
         const { id,name, address,phone } = req.body
 
         updateUser(id,name, address, phone)
-            // .then(() => res.status(201).send())
+           
             .then(() => res.send({'status':'OK'}))
             .catch(error => {
                 if (error instanceof ConflictError)

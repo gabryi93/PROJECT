@@ -1,9 +1,6 @@
 import { MapContainer, TileLayer,Marker,Popup} from "react-leaflet";
-import { useState ,useEffect} from "react";
+import { useState } from "react";
 import 'leaflet/dist/leaflet.css'
-
-
-
 
 export default function  Maps ({lati})  {
 
@@ -26,8 +23,6 @@ export default function  Maps ({lati})  {
     }
 
     const L = require('leaflet');
-
-
     const myIcon = L.icon({
       iconUrl: require('../assets/marker.png'),
       iconSize: [40,45],
@@ -37,16 +32,7 @@ export default function  Maps ({lati})  {
       shadowSize: null,
       shadowAnchor: null
   });
-    // function forceCoords(){
-    //   setLatitude('43.3602900')
-    //   setLongitude('-5.8447600')
-    //   console.log(lat)
-    //   console.log(long)
-
-    // }
-  
-    
-
+   
   return (
     <>
       
@@ -77,10 +63,7 @@ export default function  Maps ({lati})  {
 
  
 };
-  
-    
- 
-  // );
+
 
 
  

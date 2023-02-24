@@ -2,14 +2,11 @@ import log from "../utils/coolog";
 import { useEffect, useState, rad } from "react";
 import retrieveUser from "../logic/retrieveUser";
 import getCoords from "../logic/getCoords";
-import Header from "../components/Header";
 import { useContext } from "react";
 import Context from "../components/Context";
 import Maps from "../components/Maps";
-
 import LoaderGif from "../components/loaderGif";
 import { errors } from "com";
-import data from "../data/prices";
 import logoUber from "../assets/Uber.jpg"; // Tell webpack this JS file uses this image
 import logoCabify from "../assets/cabify.png"; // Tell webpack this JS file uses this image
 import logoBolt from "../assets/bolt.png"; // Tell webpack this JS file uses this image
@@ -22,37 +19,37 @@ function Home() {
       name: "Uber",
       info: "Uber Technologies, Inc. conocida simplemente como Uber es una empresa estadounidense proveedora de movilidad como un servicio. ",
       img : logoUber,
-      price: "1.90",
+      price: "2.05",
       color: "dark",
     },
     {
       name: "Cabify",
       info: "Cabify es una empresa española de red de transporte a través de su aplicación móvil para teléfonos inteligentes. Los vehículos son conducidos por proveedores de servicios autónomos. ",
       img: logoCabify,
-      price: "2.05",
+      price: "2.18",
       color: "purple",
     },
     {
       name: "Bolt",
-      info: "Bolt, anteriormente Taxify,1​ es una compañía tecnológica proveedora de servicios de movilidad fundada y radicada en Tallin, Estonia. La empresa desarrolla y opera la aplicación móvil Bolt, que permite a sus clientes solicitar un taxi o un conductor privado, alquilar patinetes eléctricos, bicicletas eléctricas o automóviles, pedir comida a domicilio o hacer la compra desde su teléfono. ",
+      info: "Bolt, anteriormente Taxify,1 es una compañía tecnológica proveedora de servicios de movilidad fundada y radicada en Tallin, Estonia. La empresa desarrolla y opera la aplicación móvil Bolt, que permite a sus clientes solicitar un taxi o un conductor privado, alquilar patinetes eléctricos, bicicletas eléctricas o automóviles, pedir comida a domicilio o hacer la compra desde su teléfono. ",
       img: logoBolt,
-      price: "1.82",
+      price: "2.02",
       color: "green",
     },
   ];
 
   log.info("Home -> render");
 
-  const [user, setUser] = useState();
+  const [setUser] = useState();
   const [addressToSearch, setAddressToSearch] = useState(null);
-  const { showAlert, logout } = useContext(Context);
+  const { showAlert } = useContext(Context);
   const [infoDestination, setInfoDestination] = useState(null);
   const [distance, setDistance] = useState(0);
-
   let latitud = localStorage.getItem("latitude");
   let longitud = localStorage.getItem("longitude");
 
   useEffect(() => {
+   
     try {
       retrieveUser(sessionStorage.token)
         .then((user) => setUser(user))
@@ -68,15 +65,12 @@ function Home() {
           else showAlert(error.message, "fatal");
         });
     } catch (error) {
-      if (
-        error instanceof TypeError ||
-        error instanceof FormatError ||
-        error instanceof LengthError
-      )
+      if (error instanceof TypeError ||  error instanceof FormatError || error instanceof LengthError)
         showAlert(error.message, "warn");
       else showAlert(error.message, "fatal");
     }
-  }, []);
+  });
+
 
   function getPosition() {
     getCoords("GET", addressToSearch, function (err, info) {
@@ -156,8 +150,7 @@ function Home() {
             {infoDestination == null ? (
               <LoaderGif />
             ) : (
-              <section>
-                
+              <section>                
                 <p style={{'fontSize':'20px'}}>Destino: {addressToSearch}</p>
                 <iframe title="ee" src={infoDestination.map_url}></iframe>
               </section>
@@ -167,7 +160,7 @@ function Home() {
     </div>
       <div className="container">
         <div className="row mt-20">
-            {infoDestination == null && distance == 0
+            {infoDestination == null && distance === 0
             ? ""
             : arrayEmp.map((emp) => (
                 <div className="mt-10 col-lg-4 col-sm-4 col-xs-4">
@@ -177,9 +170,9 @@ function Home() {
                     alt={emp.name}
                     />
                     <div className="card-body">
-                    <a className="btn btn-primary mt-4">
+                    <button  className="btn btn-primary mt-4">
                         {(distance * parseFloat(emp.price)).toFixed(2)} €
-                    </a>
+                    </button>
                     </div>
                 </div>
                 ))}
@@ -191,4 +184,3 @@ function Home() {
 
 export default Home;
 
-//Prueba de Home

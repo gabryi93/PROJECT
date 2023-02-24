@@ -1,6 +1,4 @@
 import { regex, errors } from 'com'
-// import { ReactNotifications } from 'react-notifications-component'
-// import 'react-notifications-component/dist/theme.css'
 import { Store } from 'react-notifications-component';
 
 const { IS_EMAIL_REGEX, HAS_SPACES_REGEX } = regex
@@ -15,8 +13,6 @@ const passwordErr = () => {
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
@@ -34,8 +30,6 @@ const notRegister = (correo) => {
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
@@ -52,8 +46,6 @@ const passwordLength = () => {
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
@@ -112,8 +104,6 @@ export default function authenticateUser(email, password) {
         }
 
         xhr.onerror = () => reject(new Error('connection error'))
-
-
         xhr.open('POST', 'http://localhost:3001/users/auth')
         xhr.setRequestHeader('Content-Type', 'application/json')
 

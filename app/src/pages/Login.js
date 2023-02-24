@@ -1,27 +1,13 @@
 import log from '../utils/coolog'
 import authenticateUser from '../logic/authenticateUser'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import Context from '../components/Context'
 
-import { errors } from 'com'
-import { ReactNotifications } from 'react-notifications-component'
-import 'react-notifications-component/dist/theme.css'
-import { Store } from 'react-notifications-component';
-
-const { FormatError, AuthError, LengthError, NotFoundError } = errors
-
-
-
-
-
 function Login() {
+    
     log.info('Login -> render')
-
-    const navigate = useNavigate()
-
-    const { login, showAlert} = useContext(Context)
-
+    const { login} = useContext(Context)
 
     const handleLogin = event => {
         log.info('Login -> handleLogin')
@@ -36,8 +22,6 @@ function Login() {
                  .then(token => login(token,email))
                 
                 .catch(error => {
-                    
-                    //     showAlert(error.message, 'fatal')}
                     })
         } catch (error)  {
         

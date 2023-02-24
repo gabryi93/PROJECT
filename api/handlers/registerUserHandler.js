@@ -5,9 +5,9 @@ const { errors: { FormatError, LengthError, ConflictError } } = require('../../c
 module.exports = (req, res) => {
     console.log(req)
     try {
-        const { name, email, password } = req.body
-        console.log(name,email,password)
-        registerUser(name, email, password)
+        const { name, email, password,phone } = req.body
+        
+        registerUser(name, email, password,phone)
             .then(() => res.status(201).send())
             .catch(error => {
                 if (error instanceof ConflictError)

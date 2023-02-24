@@ -46,8 +46,6 @@ export default function UserProfile(){
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
@@ -73,17 +71,13 @@ export default function UserProfile(){
                 setInfoUser(json);
                 
               }).catch('error');
-      // getUserInfo('GET', email, function (err, info) {
-      //   if (err) { throw err; }
-        
-      //   console.log(info)
-      // });
+    
         
     },[])
 
     function saveForm(e){
 
-      //para que el formulario norecargue la pagina , y encargarme yo de lo que quiero hacer ocn los datos
+      //para que el formulario no recargue la pagina , y encargarme yo de lo que quiero hacer ocn los datos
       e.preventDefault();
 
       const { name: { value: nameU }, id: { value: idU }, phone: { value: phone }, address : {value :address} } = e.target
@@ -91,12 +85,6 @@ export default function UserProfile(){
       updateUser(idU, nameU,address,phone)
       .then(todoOk())
       .catch(error => {
-          // if (error instanceof TypeError || error instanceof FormatError || error instanceof LengthError)
-          //     showAlert(error.message, 'warn')
-          // else if (error instanceof ConflictError)
-          //     showAlert(error.message, 'error')
-          // else
-          //     showAlert(error.message, 'fatal')
       })
      
     }
@@ -135,7 +123,6 @@ export default function UserProfile(){
                           </MDBCol>
                           <MDBCol sm="9">
                           <input type="text" name="name" class="form-control" placeholder="Introduce nombre ..." value={nameU} onChange={(e) => setNameU(e.target.value)}></input>
-                            {/* <MDBCardText className="text-muted">{infoUser.name}</MDBCardText> */}
                           </MDBCol>
                         </MDBRow>
                         <hr />
@@ -144,8 +131,7 @@ export default function UserProfile(){
                             <MDBCardText>Email</MDBCardText>
                           </MDBCol>
                           <MDBCol sm="9">
-                            <input type="email" name="email" class="form-control" disabled placeholder="Introduce Email ..." value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                            {/* <MDBCardText className="text-muted">{infoUser.email}</MDBCardText> */}
+                            <input type="email" name="email" class="form-control" disabled placeholder="Introduce Email ..." value={email} onChange={(e) => setEmail(e.target.value)}></input>                           
                           </MDBCol>
                         </MDBRow>
                         <hr />
@@ -156,8 +142,6 @@ export default function UserProfile(){
                           </MDBCol>
                           <MDBCol sm="9">
                           <input type="number" name="phone" placeholder="Introduce movil ..." class="form-control" value={phone} onChange={(e) => setPhone(e.target.value)}></input>
-                            {/* <MDBCardText className="text-muted">{infoUser.phone ?? 'Sin información'}</MDBCardText> */}
-                            {/* <MDBCardText className="text-muted">{infoUser.phone ? infoUser.phone : 'Sin telefono'}</MDBCardText> */}
                           </MDBCol>
                         </MDBRow>
                         <hr />
@@ -167,7 +151,6 @@ export default function UserProfile(){
                           </MDBCol>
                           <MDBCol sm="9">
                           <input type="text" name="address" class="form-control" placeholder="Introduce dirección ..." value={address} onChange={(e) => setAddress(e.target.value)}></input>
-                            {/* <MDBCardText className="text-muted">{infoUser.address}</MDBCardText> */}
                           </MDBCol>
                         </MDBRow>
                         <hr />

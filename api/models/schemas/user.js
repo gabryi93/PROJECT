@@ -1,5 +1,6 @@
-const { Schema } = require('mongoose')
+const { Schema } = require('mongoose') 
 
+//es lo mismo que una tabla en una base de datos relacional
 module.exports = new Schema({
     name: {
         type: String,

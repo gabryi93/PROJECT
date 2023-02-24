@@ -3,6 +3,7 @@ import { errors } from 'com'
 const { FormatError, NotFoundError, UnexpectedError, AuthError } = errors
 
 export default function retrieveUser(token) {
+    
     if (typeof token !== 'string') throw new TypeError('token is not a string')
     if (!token.length) throw new FormatError('token is empty')
 

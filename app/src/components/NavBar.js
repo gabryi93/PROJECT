@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import SobreNosotros from "../pages/SobreNosotros";
 import Context from "./Context";
 
 function NavBar({ user }) {

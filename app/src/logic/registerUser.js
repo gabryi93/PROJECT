@@ -6,8 +6,6 @@ const {  HAS_SPACES_REGEX, IS_ALPHABETICAL_REGEX } = regex
 
 const {  ConflictError, UnexpectedError } = errors
 
-
-
 const errorLength = (type,longitud) => {
     
     Store.addNotification({
@@ -17,8 +15,6 @@ const errorLength = (type,longitud) => {
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
@@ -35,8 +31,6 @@ const errorString = (type) => {
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
@@ -53,17 +47,12 @@ const errorEspacios = () => {
         insert: "top",
         container: "top-right",
         animation : ["bounce_in"],
-        // animationIn: ["bounce_in"],
-        // animationOut: ["bounce_out"],
         dismiss: {
           duration: 3000,
           onScreen: true
         }
       });
 }
-
-
-
 
 /**
  * Registers a user
@@ -107,15 +96,7 @@ export default function registerUser(name, email, password) {
             if (status === 201)
                 resolve()
             else if (status === 400) {
-                // const { error } = JSON.parse(json)
-
-                // if (error.includes('is not a'))
-                //     reject(new TypeError(error))
-                // else if (error.includes('valid') || error.includes('spaces'))
-                //     // reject(new FormatError(error))
-                // else if (error.includes('length'))
-                //     test();
-                    // reject(new LengthError(error))
+            
             } else if (status === 409) {
                 const { error } = JSON.parse(json)
 

@@ -1,6 +1,6 @@
 import Login from './pages/Login'
 import Home from './pages/Home'
-import Search from './pages/Search'
+// import Search from './pages/Search'
 import SobreNosotros from './pages/SobreNosotros'
 import UserProfile from './pages/UserProfile'
 import log from './utils/coolog'
@@ -9,18 +9,17 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Context from './components/Context'
 import Alert from './components/Alert'
-import Test from './components/Maps'
 import { ReactNotifications } from 'react-notifications-component'
 import NavBar from './components/NavBar'
 import Footer from "./components/Footer";
 
 function App() {
-  console.log('cargo app')
+ 
   log.info('App -> render')
 
-  let emailTest = 'micorero';
 
-  const [loggedIn, setLoggedIn] = useState(!!sessionStorage.token)
+  //declaro las variables de estado que voy a usar en la app
+  const [loggedIn, setLoggedIn] = useState(!!sessionStorage.token) //para saber si está logeado o no
   const [message, setMessage] = useState()
   const [level, setLevel] = useState()
   const [userEmail, setUserEmail] = useState()
@@ -30,12 +29,13 @@ function App() {
 
   const login = (token,email) => {
     
-    
-    
+   
     sessionStorage.token = token
      
     setLoggedIn(true)
     console.log(email)
+
+    //actualizo el email del usuario
     if(email != null){
       setUserEmail(email)
       
@@ -48,7 +48,7 @@ function App() {
     delete sessionStorage.token
 
     setLoggedIn(false)
-    console.log(sessionStorage)
+   
   }
 
   const showAlert = (message, level) => {
@@ -56,15 +56,14 @@ function App() {
     setLevel(level)
   }
 
- 
 
-
-
+  //no recice parametros y lo unico que hace es vaciar el mensaje
   const closeAlert = () => setMessage()
 
   return <Context.Provider value={{ login, logout, showAlert, }}>
     <ReactNotifications />
-   
+
+    {/* si el login es true */}
     {loggedIn ? 
     <>
       <NavBar />
@@ -74,6 +73,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sobreNosotros" element={<SobreNosotros />} />
           <Route path="/userProfile" element={<UserProfile />} />
+          {/* //toda la ruta que no tenga contemplada me lleva a la home */}
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </body>
@@ -85,8 +85,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate replace to="/login" />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/search" element={<Search />} />
         
       </Routes>}
 
